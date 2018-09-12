@@ -8,12 +8,18 @@ function solveEquation(equation) {
 
     let result = [];
 
-    result.push( Math.round(( - b - Math.sqrt( d ) ) / ( 2 * a)) );
-    result.push( Math.round(( - b + Math.sqrt( d ) ) / ( 2 * a)) );
+    let x1 = Math.round(( - b - Math.sqrt( d ) ) / ( 2 * a));
+    let x2 = Math.round(( - b + Math.sqrt( d ) ) / ( 2 * a));
+
+    if (a < 0) {
+        result.push(x2);
+        result.push(x1);
+    } else {
+        result.push(x1);
+        result.push(x2);
+    }
 
     return result
 }
-
-console.log(solveEquation('30 * x^2 + 63436590 * x - 56700499682640'));
 
 module.exports = solveEquation;
